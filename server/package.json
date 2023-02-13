@@ -7,10 +7,11 @@
         "server": "nodemon server.js --ignore client"
     },
     "keywords": [],
-    "author": "",
+    "author": "nicrhoda",
     "license": "ISC",
     "dependencies": {
-        "express": "^4.17.1"
+        "express": "^4.17.1",
+        "JATE": "file:../client"
     },
     "devDependencies": {
         "nodemon": "^2.0.4"

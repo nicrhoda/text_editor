@@ -11,19 +11,43 @@ module.exports = () => {
     mode: 'development',
     entry: {
       main: './src/js/index.js',
-      install: './src/js/install.js'
+      install: './src/js/install.js',
+      database: './src/js/editor.js',
+      header: './src/js/header.js',
     },
     output: {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
-      
+      new HtmlWebpackPlugin({
+        template: './index.html',
+        title: 'JATE',
+      }),
+      new MiniCssExtractPlugin(),
+      new WorkboxPlugin.GenerateSW(),
     ],
 
     module: {
       rules: [
-        
+        {
+          test: /\.css$/i,
+          use: [MiniCssExtractPlugin.loader, 'css-loader'],
+        },
+        {
+          test: /\.(png|svg|jpg|jpeg|gif)$/i,
+          type: 'asset/resource',
+        },
+        {
+          test: /\.m?js$/,
+          exclude: /(node_modules|bower_components)/,
+          user: {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env'],
+            },
+          },
+        },
       ],
     },
   };

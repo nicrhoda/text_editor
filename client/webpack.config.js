@@ -25,7 +25,22 @@ module.exports = () => {
         title: 'JATE',
       }),
       new MiniCssExtractPlugin(),
-      new WorkboxPlugin.GenerateSW(),
+      new InjectManifest({
+        swSrc: './src-sw.js',
+        swDest: 'src-sw.js',
+      }),
+      new WebpackPwaManifest({
+        fingerprints: false,
+        inject: true,
+        name: 'Content Card',
+        short_name: 'Content',
+        description: 'Content Card',
+        // finish all of the little details
+        background_color: 'white',
+        theme_color: 'black',
+        start_url: './',
+        publicPath: './',
+      }),
     ],
 
     module: {

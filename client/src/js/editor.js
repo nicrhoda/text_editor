@@ -27,11 +27,11 @@ export default class {
     getDb().then((data) => {
       console.info('Loaded data from IndexedDB, injecting into editor');
       
-      //conditional to avoid codemirror error
+      //conditional to avoid codemirror error for empty array
       if(!data.length) {
         this.editor.setValue(localData || header);
       } else {
-        this.editor.setValue(data || localData || header);
+        this.editor.setValue(localData || header);
       }
     });
 

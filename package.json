@@ -9,23 +9,17 @@
     "server": "cd server node server.js --ignore client",
     "build": "cd client && npm run build",
     "install": "cd server && npm i ../client && npm i",
-    "client": "cd client && npm start",
-    "heroku-prebuild": "npm install -dev"
+    "client": "cd client && npm start"
   },
   "keywords": [],
   "author": "nicrhoda",
   "license": "MIT",
   "dependencies": {
     "express": "^4.17.1",
-    "if-env": "^1.0.4",
-    "node": "19.6.0"
+    "if-env": "^1.0.4"
   },
   "devDependencies": {
     "concurrently": "^5.2.0",
-    "webpack": "5.75.0",
-    "webpack-cli": "^4.10.0",
-    "webpack-dev-server": "^4.0.0",
-    "webpack-pwa-manifest": "^4.3.0",
-    "workbox-webpack-plugin": "^6.2.4"
+    "nodemon": "2.0.20"
   }
 }
